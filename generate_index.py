@@ -78,9 +78,11 @@ detail_template = '''<!DOCTYPE html>
   </main>
   <script src="../js/basicLightbox.min.js"></script>
   <script>
-    document.querySelectorAll('.gallery-img').forEach(function(img) {{
-      img.addEventListener('click', function() {{
-        basicLightbox.create('<img src="' + img.src + '" style="max-width:90vw;max-height:90vh;">').show();
+    document.addEventListener('DOMContentLoaded', function() {{
+      document.querySelectorAll('.gallery-img').forEach(function(img) {{
+        img.addEventListener('click', function() {{
+          basicLightbox.create('<img src="' + img.src + '" style="max-width:90vw;max-height:90vh;">').show();
+        }});
       }});
     }});
   </script>
