@@ -71,7 +71,6 @@ detail_template = '''<!DOCTYPE html>
       </ul>
     </aside>
     <section class="car-content">
-      {gallery}
       <p><a href="../index.html">&larr; Voltar para a listagem</a></p>
     </section>
   </main>
@@ -84,13 +83,6 @@ for v in vehicles:
     # WhatsApp formatting
     whatsapp_link = v.get("whatsapp", "").replace("+", "").replace(" ", "")
     whatsapp_display = v.get("whatsapp_display", v.get("whatsapp", ""))
-    # Gallery HTML
-    gallery = ""
-    if v.get("images"):
-        gallery += '<div class="car-gallery">'
-        for img in v["images"]:
-            gallery += f'<img src="../{img}" class="gallery-img" loading="lazy">'
-        gallery += '</div>'
     detail_html = detail_template.format(
         title=v["title"],
         image=v["image"],
@@ -103,8 +95,7 @@ for v in vehicles:
         year=v.get("year", "-"),
         color=v.get("color", "-"),
         mileage=v.get("mileage", "-"),
-        power=v.get("power", "-"),
-        gallery=gallery
+        power=v.get("power", "-")
     )
     # Extract filename from link
     filename = v["link"].split('/')[-1]
