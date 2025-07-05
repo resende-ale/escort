@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Toyota Corolla 2024</title>
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/basicLightbox.min.css">
 </head>
 <body>
   <header>
@@ -35,5 +36,13 @@
       <p><a href="../index.html">&larr; Voltar para a listagem</a></p>
     </section>
   </main>
+  <script src="../js/basicLightbox.min.js"></script>
+  <script>
+    document.querySelectorAll('.gallery-img').forEach(function(img) {
+      img.addEventListener('click', function() {
+        basicLightbox.create('<img src="' + img.src + '" style="max-width:90vw;max-height:90vh;">').show();
+      });
+    });
+  </script>
 </body>
 </html>

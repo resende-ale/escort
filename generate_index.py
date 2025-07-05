@@ -45,6 +45,7 @@ detail_template = '''<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/basicLightbox.min.css">
 </head>
 <body>
   <header>
@@ -75,6 +76,14 @@ detail_template = '''<!DOCTYPE html>
       <p><a href="../index.html">&larr; Voltar para a listagem</a></p>
     </section>
   </main>
+  <script src="../js/basicLightbox.min.js"></script>
+  <script>
+    document.querySelectorAll('.gallery-img').forEach(function(img) {{
+      img.addEventListener('click', function() {{
+        basicLightbox.create('<img src="' + img.src + '" style="max-width:90vw;max-height:90vh;">').show();
+      }});
+    }});
+  </script>
 </body>
 </html>
 '''
