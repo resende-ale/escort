@@ -56,9 +56,6 @@ detail_template = '''<!DOCTYPE html>
     <aside class="car-sidebar">
       <img class="car-main-photo" src="../{image}" alt="{title}">
       <div class="car-title">{title}</div>
-      <div class="car-field"><strong>Preço:</strong> {price}</div>
-      <div class="car-field"><strong>Localização:</strong> {location}</div>
-      <div class="car-field"><strong>Descrição:</strong> {description}</div>
       <a class="whatsapp-btn" href="https://wa.me/{whatsapp_link}" target="_blank">WhatsApp: {whatsapp_display}</a>
       <ul class="car-details">
         <li><strong>Marca:</strong> {make}</li>
@@ -67,6 +64,9 @@ detail_template = '''<!DOCTYPE html>
         <li><strong>Quilometragem:</strong> {mileage}</li>
         <li><strong>Potência:</strong> {power}</li>
       </ul>
+      <div class="car-field"><strong>Preço:</strong> {price}</div>
+      <div class="car-field"><strong>Localização:</strong> {location}</div>
+      <div class="car-field"><strong>Descrição:</strong> {description}</div>
     </aside>
     <section class="car-content">
       <p><a href="../index.html">&larr; Voltar para a listagem</a></p>
