@@ -82,7 +82,7 @@ os.makedirs('escort/anuncios', exist_ok=True)
 for v in vehicles:
     # WhatsApp formatting
     whatsapp_link = v.get("whatsapp", "").replace("+", "").replace(" ", "")
-    whatsapp_display = v.get("whatsapp", "")
+    whatsapp_display = v.get("whatsapp_display", v.get("whatsapp", ""))
     detail_html = detail_template.format(
         title=v["title"],
         image=v["image"],
