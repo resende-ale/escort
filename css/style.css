@@ -71,13 +71,3 @@ header {
 .grid > .card:nth-child(3n+2):last-child {
   grid-column: 3 / 4;
 }
-
-.last-row-pair {
-  grid-column: span 1;
-}
-.last-row-pair:first-of-type {
-  justify-self: start;
-}
-.last-row-pair:last-of-type {
-  justify-self: end;
-}
