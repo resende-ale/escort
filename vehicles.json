@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Volkswagen Gol 2019",
+    "price": "R$ 39.000",
+    "location": "São Paulo - SP",
+    "image": "img/gol-2019-1.jpg",
+    "link": "anuncios/gol-2019.html"
+  },
+  {
+    "title": "Honda Civic 2021",
+    "price": "R$ 94.000",
+    "location": "Campinas - SP",
+    "image": "img/civic-2021-1.jpg",
+    "link": "anuncios/civic-2021.html"
+  },
+  {
+    "title": "Toyota corolla 2024",
+    "price": "R$ 94.000",
+    "location": "Campinas - SP",
+    "image": "img/corolla-2024-1.jpg",
+    "link": "anuncios/corolla-2024.html"
+  },
+  {
+    "title": "Mitsubishi Lancer 2009",
+    "price": "R$ 94.000",
+    "location": "Campinas - SP",
+    "image": "img/lancer-2009-1.webp",
+    "link": "anuncios/lancer-2009.html"
+  },
+  {
+    "title": "Volkswagen T-Cross 2024",
+    "price": "R$ 94.000",
+    "location": "Campinas - SP",
+    "image": "img/tcross-2024-1.avif",
+    "link": "anuncios/tcross-2024.html"
+  },
+  {
+    "title": "Suzuki Jimny 2024",
+    "price": "R$ 94.000",
+    "location": "Campinas - SP",
+    "image": "img/jimny-2024-1.jpg",
+    "link": "anuncios/jimny-2024.html"
+  },
+  {
+    "title": "Fiat Panda 2022",
+    "price": "R$ 94.000",
+    "location": "Campinas - SP",
+    "image": "img/panda-2022-1.webp",
+    "link": "anuncios/panda-2022.html"
+  }
+] 
