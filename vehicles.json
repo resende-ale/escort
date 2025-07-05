@@ -4,6 +4,14 @@
     "price": "R$ 39.000",
     "location": "São Paulo - SP",
     "image": "img/gol-2019-1.jpg",
+    "images": [
+      "img/gol-2019-1.jpg",
+      "img/gol-2019-2.jpg",
+      "img/gol-2019-3.jpg",
+      "img/gol-2019-4.jpg",
+      "img/gol-2019-5.jpg",
+      "img/gol-2019-6.jpg"
+    ],
     "link": "anuncios/gol-2019.html",
     "description": "Hatch compacto, econômico, ótimo para uso urbano e viagens curtas. Bem conservado, único dono.",
     "whatsapp": "+5511980553559",
