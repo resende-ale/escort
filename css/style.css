@@ -16,6 +16,15 @@ header {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Center the last card when there's an odd number of cards */
+.grid .card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 10px);
+  margin: 0 auto;
 }
 .card {
   text-decoration: none;
