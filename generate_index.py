@@ -30,10 +30,7 @@ for v in vehicles:
     cards += f'''
     <a href="{v["link"]}" class="card">
       <img src="{v["image"]}" alt="{v["title"]}">
-      <div class="info">
-        <h3>{v["title"]}</h3>
-        <p>{v["price"]} • {v["location"]}</p>
-      </div>
+      <div class="info">{v["title"]}</div>
     </a>
     '''
 

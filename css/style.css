@@ -52,7 +52,18 @@ header img {
   display: block;
 }
 .card .info {
-  padding: 10px;
+  height: 15px;
+  line-height: 15px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0;
+  background: rgba(27, 27, 27, 0.789);
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .detalhes {
   padding: 20px;
