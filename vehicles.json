@@ -4,48 +4,55 @@
     "price": "R$ 39.000",
     "location": "São Paulo - SP",
     "image": "img/gol-2019-1.jpg",
-    "link": "anuncios/gol-2019.html"
+    "link": "anuncios/gol-2019.html",
+    "description": "Hatch compacto, econômico, ótimo para uso urbano e viagens curtas. Bem conservado, único dono."
   },
   {
     "title": "Honda Civic 2021",
     "price": "R$ 94.000",
     "location": "Campinas - SP",
     "image": "img/civic-2021-1.jpg",
-    "link": "anuncios/civic-2021.html"
+    "link": "anuncios/civic-2021.html",
+    "description": "Sedan médio, completo, baixa quilometragem, revisões em dia, excelente estado de conservação."
   },
   {
     "title": "Toyota corolla 2024",
     "price": "R$ 94.000",
     "location": "Campinas - SP",
     "image": "img/corolla-2024-1.jpg",
-    "link": "anuncios/corolla-2024.html"
+    "link": "anuncios/corolla-2024.html",
+    "description": "Novo Corolla, modelo 2024, tecnologia híbrida, conforto e segurança de ponta."
   },
   {
     "title": "Mitsubishi Lancer 2009",
     "price": "R$ 94.000",
     "location": "Campinas - SP",
     "image": "img/lancer-2009-1.webp",
-    "link": "anuncios/lancer-2009.html"
+    "link": "anuncios/lancer-2009.html",
+    "description": "Esportivo, motor potente, ótimo para quem busca desempenho e estilo."
   },
   {
     "title": "Volkswagen T-Cross 2024",
     "price": "R$ 94.000",
     "location": "Campinas - SP",
     "image": "img/tcross-2024-1.avif",
-    "link": "anuncios/tcross-2024.html"
+    "link": "anuncios/tcross-2024.html",
+    "description": "SUV compacto, econômico, completo, com baixa quilometragem e garantia de fábrica."
   },
   {
     "title": "Suzuki Jimny 2024",
     "price": "R$ 94.000",
     "location": "Campinas - SP",
     "image": "img/jimny-2024-1.jpg",
-    "link": "anuncios/jimny-2024.html"
+    "link": "anuncios/jimny-2024.html",
+    "description": "4x4 robusto, ideal para trilhas e aventuras off-road, novo, zero km."
   },
   {
     "title": "Fiat Panda 2022",
     "price": "R$ 94.000",
     "location": "Campinas - SP",
     "image": "img/panda-2022-1.webp",
-    "link": "anuncios/panda-2022.html"
+    "link": "anuncios/panda-2022.html",
+    "description": "Compacto, econômico, ótimo para cidade, manutenção em dia, excelente custo-benefício."
   }
 ] 
