@@ -125,7 +125,7 @@ header img {
   transition: background 0.2s;
 }
 .whatsapp-btn:hover {
-  background: #1ebe5d;
+  background: rgb(42, 42, 42);
   color: #fff;
 }
 .whats-icon {
