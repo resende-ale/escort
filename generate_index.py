@@ -63,10 +63,10 @@ detail_template = '''<!DOCTYPE html>
         <li><strong>Cor:</strong> {color}</li>
         <li><strong>Quilometragem:</strong> {mileage}</li>
         <li><strong>Potência:</strong> {power}</li>
+        <li><strong>Preço:</strong> {price}</li>
+        <li><strong>Localização:</strong> {location}</li>
+        <li><strong>Descrição:</strong> {description}</li>
       </ul>
-      <div class="car-field"><strong>Preço:</strong> {price}</div>
-      <div class="car-field"><strong>Localização:</strong> {location}</div>
-      <div class="car-field"><strong>Descrição:</strong> {description}</div>
     </aside>
     <section class="car-content">
       <p><a href="../index.html">&larr; Voltar para a listagem</a></p>
