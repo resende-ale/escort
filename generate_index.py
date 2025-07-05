@@ -46,6 +46,11 @@ detail_template = '''<!DOCTYPE html>
   <title>{title}</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/basicLightbox.min.css">
+  <style>
+    .lightbox-arrow {{ position: fixed; top: 50%; transform: translateY(-50%); font-size: 2.5em; color: #fff; background: rgba(0,0,0,0.3); border: none; z-index: 1100; cursor: pointer; padding: 0 18px; border-radius: 8px; user-select: none; }}
+    .lightbox-arrow.left {{ left: 20px; }}
+    .lightbox-arrow.right {{ right: 20px; }}
+  </style>
 </head>
 <body>
   <header>
@@ -79,10 +84,31 @@ detail_template = '''<!DOCTYPE html>
   <script src="../js/basicLightbox.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {{
-      document.querySelectorAll('.gallery-img').forEach(function(img) {{
-        img.addEventListener('click', function() {{
-          basicLightbox.create('<img src="' + img.src + '" style="max-width:90vw;max-height:90vh;">').show();
+      var images = Array.from(document.querySelectorAll('.gallery-img'));
+      function showLightbox(idx) {{
+        var instance = basicLightbox.create(`
+          <button class="lightbox-arrow left">&#8592;</button>
+          <img src="${{images[idx].src}}" style="max-width:90vw;max-height:90vh;display:block;margin:auto;">
+          <button class="lightbox-arrow right">&#8594;</button>
+        `, {{
+          onShow: (inst) => {{
+            var left = inst.element().querySelector('.lightbox-arrow.left');
+            var right = inst.element().querySelector('.lightbox-arrow.right');
+            left.onclick = function(e) {{ e.stopPropagation(); inst.close(); showLightbox((idx-1+images.length)%images.length); }};
+            right.onclick = function(e) {{ e.stopPropagation(); inst.close(); showLightbox((idx+1)%images.length); }};
+            document.onkeydown = function(ev) {{
+              if(ev.key === 'ArrowLeft') {{ inst.close(); showLightbox((idx-1+images.length)%images.length); }}
+              if(ev.key === 'ArrowRight') {{ inst.close(); showLightbox((idx+1)%images.length); }}
+              if(ev.key === 'Escape') {{ inst.close(); }}
+            }};
+          }},
+          onClose: () => {{ document.onkeydown = null; }}
         }});
+        instance.show();
+      }}
+      images.forEach(function(img, i) {{
+        img.setAttribute('data-index', i);
+        img.addEventListener('click', function() {{ showLightbox(i); }});
       }});
     }});
   </script>
@@ -99,8 +125,8 @@ for v in vehicles:
     gallery = ""
     if v.get("images"):
         gallery += '<div class="car-gallery">'
-        for img in v["images"]:
-            gallery += f'<img src="../{img}" class="gallery-img" loading="lazy">'
+        for idx, img in enumerate(v["images"]):
+            gallery += f'<img src="../{img}" class="gallery-img" loading="lazy" data-index="{idx}">'  # add data-index
         gallery += '</div>'
     detail_html = detail_template.format(
         title=v["title"],
