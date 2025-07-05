@@ -51,7 +51,9 @@ detail_template = '''<!DOCTYPE html>
 </head>
 <body>
   <header>
-    <img src="../img/logo.png" alt="Logo">
+    <a href="../index.html">
+      <img src="../img/logo.png" alt="Logo">
+    </a>
   </header>
   <main class="detalhes">
     <img src="../{image}" alt="{title}">
