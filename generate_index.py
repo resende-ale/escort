@@ -56,7 +56,9 @@ detail_template = '''<!DOCTYPE html>
     <aside class="car-sidebar">
       <img class="car-main-photo" src="../{image}" alt="{title}">
       <div class="car-title">{title}</div>
-      <a class="whatsapp-btn" href="https://wa.me/{whatsapp_link}" target="_blank">WhatsApp: {whatsapp_display}</a>
+      <a class="whatsapp-btn" href="https://wa.me/{whatsapp_link}" target="_blank">
+        <img src="../img/whats-logo.png" alt="WhatsApp" class="whats-icon">{whatsapp_display}
+      </a>
       <ul class="car-details">
         <li><strong>Marca:</strong> {make}</li>
         <li><strong>Ano:</strong> {year}</li>
