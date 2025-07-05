@@ -14,7 +14,7 @@ html_start = '''<!DOCTYPE html>
 </head>
 <body>
   <header>
-    <h1>Carros à Venda</h1>
+    <img src="img/logo.png" alt="Logo">
   </header>
   <main class="grid">
 '''
@@ -51,7 +51,7 @@ detail_template = '''<!DOCTYPE html>
 </head>
 <body>
   <header>
-    <h1><a href="../index.html" style="color:inherit;text-decoration:none">Carros à Venda</a></h1>
+    <img src="../img/logo.png" alt="Logo">
   </header>
   <main class="detalhes">
     <img src="../{image}" alt="{title}">

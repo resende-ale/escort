@@ -8,8 +8,17 @@ body {
 header {
   background: rgb(21, 21, 21);
   color: white;
-  padding: 15px;
-  text-align: center;
+  height: 58px;
+  border-bottom: 1px solid #414141;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+header img {
+  height: 58px;
+  width: auto;
+  object-fit: contain;
 }
 .grid {
   display: grid;
