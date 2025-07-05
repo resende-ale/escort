@@ -6,7 +6,7 @@
     "image": "img/gol-2019-1.jpg",
     "link": "anuncios/gol-2019.html",
     "description": "Hatch compacto, econômico, ótimo para uso urbano e viagens curtas. Bem conservado, único dono.",
-    "whatsapp": "+5511999999999",
+    "whatsapp": "+5511980553559",
     "make": "Volkswagen",
     "year": "2019",
     "color": "Vermelho",
@@ -19,7 +19,13 @@
     "location": "Campinas - SP",
     "image": "img/civic-2021-1.jpg",
     "link": "anuncios/civic-2021.html",
-    "description": "Sedan médio, completo, baixa quilometragem, revisões em dia, excelente estado de conservação."
+    "description": "Sedan médio, completo, baixa quilometragem, revisões em dia, excelente estado de conservação.",
+    "whatsapp": "+5511980553559",
+    "make": "Volkswagen",
+    "year": "2019",
+    "color": "Vermelho",
+    "mileage": "45.000 km",
+    "power": "84 cv"
   },
   {
     "title": "Toyota corolla 2024",
@@ -27,7 +33,13 @@
     "location": "Campinas - SP",
     "image": "img/corolla-2024-1.jpg",
     "link": "anuncios/corolla-2024.html",
-    "description": "Novo Corolla, modelo 2024, tecnologia híbrida, conforto e segurança de ponta."
+    "description": "Novo Corolla, modelo 2024, tecnologia híbrida, conforto e segurança de ponta.",
+    "whatsapp": "+5511980553559",
+    "make": "Volkswagen",
+    "year": "2019",
+    "color": "Vermelho",
+    "mileage": "45.000 km",
+    "power": "84 cv"
   },
   {
     "title": "Mitsubishi Lancer 2009",
@@ -35,7 +47,13 @@
     "location": "Campinas - SP",
     "image": "img/lancer-2009-1.webp",
     "link": "anuncios/lancer-2009.html",
-    "description": "Esportivo, motor potente, ótimo para quem busca desempenho e estilo."
+    "description": "Esportivo, motor potente, ótimo para quem busca desempenho e estilo.",
+    "whatsapp": "+5511980553559",
+    "make": "Volkswagen",
+    "year": "2019",
+    "color": "Vermelho",
+    "mileage": "45.000 km",
+    "power": "84 cv"
   },
   {
     "title": "Volkswagen T-Cross 2024",
@@ -43,7 +61,13 @@
     "location": "Campinas - SP",
     "image": "img/tcross-2024-1.avif",
     "link": "anuncios/tcross-2024.html",
-    "description": "SUV compacto, econômico, completo, com baixa quilometragem e garantia de fábrica."
+    "description": "SUV compacto, econômico, completo, com baixa quilometragem e garantia de fábrica.",
+    "whatsapp": "+5511980553559",
+    "make": "Volkswagen",
+    "year": "2019",
+    "color": "Vermelho",
+    "mileage": "45.000 km",
+    "power": "84 cv"
   },
   {
     "title": "Suzuki Jimny 2024",
@@ -51,7 +75,13 @@
     "location": "Campinas - SP",
     "image": "img/jimny-2024-1.jpg",
     "link": "anuncios/jimny-2024.html",
-    "description": "4x4 robusto, ideal para trilhas e aventuras off-road, novo, zero km."
+    "description": "4x4 robusto, ideal para trilhas e aventuras off-road, novo, zero km.",
+    "whatsapp": "+5511980553559",
+    "make": "Volkswagen",
+    "year": "2019",
+    "color": "Vermelho",
+    "mileage": "45.000 km",
+    "power": "84 cv"
   },
   {
     "title": "Fiat Panda 2022",
@@ -59,6 +89,12 @@
     "location": "Campinas - SP",
     "image": "img/panda-2022-1.webp",
     "link": "anuncios/panda-2022.html",
-    "description": "Compacto, econômico, ótimo para cidade, manutenção em dia, excelente custo-benefício."
+    "description": "Compacto, econômico, ótimo para cidade, manutenção em dia, excelente custo-benefício.",
+    "whatsapp": "+5511980553559",
+    "make": "Volkswagen",
+    "year": "2019",
+    "color": "Vermelho",
+    "mileage": "45.000 km",
+    "power": "84 cv"
   }
 ] 
