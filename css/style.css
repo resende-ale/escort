@@ -59,15 +59,15 @@ header {
 }
 
 /* 1 card in last row: center it in the middle column */
-.grid > .card:only-child,
-.grid > .card:last-child:nth-child(3n+2):nth-last-child(1) {
+.grid > .card:nth-child(3n+1):last-child {
   grid-column: 2 / 3;
 }
 
 /* 2 cards in last row: put them in columns 1 and 3 */
-.grid > .card:nth-last-child(2):nth-child(3n+1) {
+.grid > .card:nth-child(3n+1):nth-last-child(2),
+.grid > .card:nth-child(3n+2):nth-last-child(1) {
   grid-column: 1 / 2;
 }
-.grid > .card:last-child:nth-child(3n+2) {
+.grid > .card:nth-child(3n+2):last-child {
   grid-column: 3 / 4;
 }
