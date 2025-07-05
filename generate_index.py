@@ -1,8 +1,12 @@
-import json
+import csv
 import os
 
-with open('escort/vehicles.json', encoding='utf-8') as f:
-    vehicles = json.load(f)
+# Read vehicles from CSV
+vehicles = []
+with open('escort/vehicles.csv', encoding='utf-8') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        vehicles.append(row)
 
 html_start = '''<!DOCTYPE html>
 <html lang="pt-br">
@@ -27,9 +31,16 @@ html_end = '''
 
 cards = ""
 for v in vehicles:
+    # Main image: first image in the folder, or fallback to image column
+    img_folder = f"escort/img/{v['image_folder']}"
+    main_img = v['image']
+    if os.path.isdir(img_folder):
+        imgs = sorted([f for f in os.listdir(img_folder) if not f.startswith('.')])
+        if imgs:
+            main_img = f"img/{v['image_folder']}/{imgs[0]}"
     cards += f'''
     <a href="{v["link"]}" class="card">
-      <img src="{v["image"]}" alt="{v["title"]}">
+      <img src="{main_img}" alt="{v["title"]}">
       <div class="info">{v["title"]}</div>
     </a>
     '''
@@ -62,13 +73,14 @@ detail_template = '''<!DOCTYPE html>
   </header>
   <main class="car-page">
     <aside class="car-sidebar">
-      <img class="car-main-photo" src="../{image}" alt="{title}">
+      <img class="car-main-photo" src="../{main_img}" alt="{title}">
       <div class="car-title">{title}</div>
       <a class="whatsapp-btn" href="https://wa.me/{whatsapp_link}" target="_blank">
         <img src="../img/whats-logo.png" alt="WhatsApp" class="whats-icon">{whatsapp_display}
       </a>
       <ul class="car-details">
         <li><strong>Marca:</strong> {make}</li>
+        <li><strong>Modelo:</strong> {model}</li>
         <li><strong>Ano:</strong> {year}</li>
         <li><strong>Cor:</strong> {color}</li>
         <li><strong>Quilometragem:</strong> {mileage}</li>
@@ -123,25 +135,31 @@ detail_template = '''<!DOCTYPE html>
 
 os.makedirs('escort/anuncios', exist_ok=True)
 for v in vehicles:
-    # WhatsApp formatting
-    whatsapp_link = v.get("whatsapp", "").replace("+", "").replace(" ", "")
-    whatsapp_display = v.get("whatsapp_display", v.get("whatsapp", ""))
-    # Gallery HTML
+    img_folder = f"escort/img/{v['image_folder']}"
     gallery = ""
-    if v.get("images"):
+    main_img = v['image']
+    gallery_imgs = []
+    if os.path.isdir(img_folder):
+        imgs = sorted([f for f in os.listdir(img_folder) if not f.startswith('.')])
+        if imgs:
+            main_img = f"img/{v['image_folder']}/{imgs[0]}"
+            gallery_imgs = [f"img/{v['image_folder']}/{img}" for img in imgs]
+    # Gallery HTML
+    if gallery_imgs:
         gallery += '<div class="car-gallery">'
-        for idx, img in enumerate(v["images"]):
+        for idx, img in enumerate(gallery_imgs):
             gallery += f'<img src="../{img}" class="gallery-img" loading="lazy" data-index="{idx}">'  # add data-index
         gallery += '</div>'
     detail_html = detail_template.format(
         title=v["title"],
-        image=v["image"],
+        main_img=main_img,
         price=v.get("price", ""),
         location=v.get("location", ""),
         description=v.get("description", ""),
-        whatsapp_link=whatsapp_link,
-        whatsapp_display=whatsapp_display,
+        whatsapp_link=v.get("whatsapp", "").replace("+", "").replace(" ", ""),
+        whatsapp_display=v.get("whatsapp_display", v.get("whatsapp", "")),
         make=v.get("make", "-"),
+        model=v.get("model", "-"),
         year=v.get("year", "-"),
         color=v.get("color", "-"),
         mileage=v.get("mileage", "-"),
