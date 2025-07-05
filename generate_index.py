@@ -50,6 +50,8 @@ detail_template = '''<!DOCTYPE html>
     .lightbox-arrow {{ position: fixed; top: 50%; transform: translateY(-50%); font-size: 2.5em; color: #fff; background: rgba(0,0,0,0.3); border: none; z-index: 1100; cursor: pointer; padding: 0 18px; border-radius: 8px; user-select: none; }}
     .lightbox-arrow.left {{ left: 20px; }}
     .lightbox-arrow.right {{ right: 20px; }}
+    .lightbox-close {{ position: fixed; top: 24px; left: 24px; font-size: 2.2em; color: #fff; background: rgba(0,0,0,0.3); border: none; z-index: 1200; cursor: pointer; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }}
+    .lightbox-close:hover {{ background: rgba(0,0,0,0.5); }}
   </style>
 </head>
 <body>
@@ -87,13 +89,16 @@ detail_template = '''<!DOCTYPE html>
       var images = Array.from(document.querySelectorAll('.gallery-img'));
       function showLightbox(idx) {{
         var instance = basicLightbox.create(`
+          <button class="lightbox-close">&times;</button>
           <button class="lightbox-arrow left">&#8592;</button>
           <img src="${{images[idx].src}}" style="max-width:90vw;max-height:90vh;display:block;margin:auto;">
           <button class="lightbox-arrow right">&#8594;</button>
         `, {{
           onShow: (inst) => {{
+            var closeBtn = inst.element().querySelector('.lightbox-close');
             var left = inst.element().querySelector('.lightbox-arrow.left');
             var right = inst.element().querySelector('.lightbox-arrow.right');
+            closeBtn.onclick = function(e) {{ e.stopPropagation(); inst.close(); }};
             left.onclick = function(e) {{ e.stopPropagation(); inst.close(); showLightbox((idx-1+images.length)%images.length); }};
             right.onclick = function(e) {{ e.stopPropagation(); inst.close(); showLightbox((idx+1)%images.length); }};
             document.onkeydown = function(ev) {{
