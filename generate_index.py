@@ -52,13 +52,25 @@ detail_template = '''<!DOCTYPE html>
       <img src="../img/logo.png" alt="Logo">
     </a>
   </header>
-  <main class="detalhes">
-    <img src="../{image}" alt="{title}">
-    <h2>{title}</h2>
-    <p><strong>Preço:</strong> {price}</p>
-    <p><strong>Localização:</strong> {location}</p>
-    <p>{description}</p>
-    <p><a href="../index.html">&larr; Voltar para a listagem</a></p>
+  <main class="car-page">
+    <aside class="car-sidebar">
+      <img class="car-main-photo" src="../{image}" alt="{title}">
+      <a class="whatsapp-btn" href="https://wa.me/{whatsapp_link}" target="_blank">WhatsApp: {whatsapp_display}</a>
+      <ul class="car-details">
+        <li><strong>Marca:</strong> {make}</li>
+        <li><strong>Ano:</strong> {year}</li>
+        <li><strong>Cor:</strong> {color}</li>
+        <li><strong>Quilometragem:</strong> {mileage}</li>
+        <li><strong>Potência:</strong> {power}</li>
+      </ul>
+    </aside>
+    <section class="car-content">
+      <h2>{title}</h2>
+      <p><strong>Preço:</strong> {price}</p>
+      <p><strong>Localização:</strong> {location}</p>
+      <p>{description}</p>
+      <p><a href="../index.html">&larr; Voltar para a listagem</a></p>
+    </section>
   </main>
 </body>
 </html>
@@ -66,12 +78,22 @@ detail_template = '''<!DOCTYPE html>
 
 os.makedirs('escort/anuncios', exist_ok=True)
 for v in vehicles:
+    # WhatsApp formatting
+    whatsapp_link = v.get("whatsapp", "").replace("+", "").replace(" ", "")
+    whatsapp_display = v.get("whatsapp", "")
     detail_html = detail_template.format(
         title=v["title"],
         image=v["image"],
-        price=v["price"],
-        location=v["location"],
-        description=v.get("description", "")
+        price=v.get("price", ""),
+        location=v.get("location", ""),
+        description=v.get("description", ""),
+        whatsapp_link=whatsapp_link,
+        whatsapp_display=whatsapp_display,
+        make=v.get("make", "-"),
+        year=v.get("year", "-"),
+        color=v.get("color", "-"),
+        mileage=v.get("mileage", "-"),
+        power=v.get("power", "-")
     )
     # Extract filename from link
     filename = v["link"].split('/')[-1]

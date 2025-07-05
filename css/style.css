@@ -78,6 +78,75 @@ header img {
   margin-bottom: 20px;
 }
 
+.car-page {
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 32px auto;
+}
+
+.car-sidebar {
+  background: rgb(21, 21, 21);
+  border-radius: 12px;
+  padding: 24px 16px;
+  min-width: 280px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.car-main-photo {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  object-fit: cover;
+  background: #222;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  background: #25d366;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 18px;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+.whatsapp-btn:hover {
+  background: #1ebe5d;
+}
+
+.car-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  color: #fff;
+}
+.car-details li {
+  padding: 6px 0;
+  border-bottom: 1px solid #333;
+  font-size: 15px;
+}
+.car-details li:last-child {
+  border-bottom: none;
+}
+
+.car-content {
+  flex: 1;
+  background: rgb(31, 31, 31);
+  color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  min-width: 0;
+}
+
 @media (max-width: 700px) {
   .grid {
     grid-template-columns: 1fr;
