@@ -40,7 +40,7 @@ header img {
   border: 1px solid #ccc;
   background: white;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 400px;
