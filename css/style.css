@@ -13,31 +13,19 @@ header {
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Always 3 columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
-  max-width: 1320px; /* 3 cards of 400px + 2 gaps */
+  max-width: 1320px;
   margin: 0 auto;
   justify-content: center; /* Center last row if not full */
 }
 
-/* Remove previous odd/even centering rules */
 .grid .card {
   width: 100%;
   max-width: 400px;
 }
 
-/* Center 1 or 2 cards in the last row */
-.grid > .card:nth-last-child(2):nth-child(3n+1),
-.grid > .card:last-child:nth-child(3n+1),
-.grid > .card:last-child:nth-child(3n+2) {
-  grid-column: span 2;
-  justify-self: center;
-}
-
-.grid > .card:last-child:nth-child(3n+1) {
-  grid-column: 2 / 3;
-}
 .card {
   text-decoration: none;
   color: black;
