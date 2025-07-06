@@ -48,7 +48,11 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var images = Array.from(document.querySelectorAll('.gallery-img'));
+      var currentInstance = null;
+      var currentIndex = 0;
+      
       function showLightbox(idx) {
+        currentIndex = idx;
         var instance = basicLightbox.create(`
           <button class="lightbox-close">&times;</button>
           <button class="lightbox-arrow left">&#8592;</button>
@@ -56,22 +60,46 @@
           <button class="lightbox-arrow right">&#8594;</button>
         `, {
           onShow: (inst) => {
+            currentInstance = inst;
             var closeBtn = inst.element().querySelector('.lightbox-close');
             var left = inst.element().querySelector('.lightbox-arrow.left');
             var right = inst.element().querySelector('.lightbox-arrow.right');
+            var img = inst.element().querySelector('img');
+            
             closeBtn.onclick = function(e) { e.stopPropagation(); inst.close(); };
-            left.onclick = function(e) { e.stopPropagation(); inst.close(); showLightbox((idx-1+images.length)%images.length); };
-            right.onclick = function(e) { e.stopPropagation(); inst.close(); showLightbox((idx+1)%images.length); };
+            
+            left.onclick = function(e) { 
+              e.stopPropagation(); 
+              currentIndex = (currentIndex - 1 + images.length) % images.length;
+              img.src = images[currentIndex].src;
+            };
+            
+            right.onclick = function(e) { 
+              e.stopPropagation(); 
+              currentIndex = (currentIndex + 1) % images.length;
+              img.src = images[currentIndex].src;
+            };
+            
             document.onkeydown = function(ev) {
-              if(ev.key === 'ArrowLeft') { inst.close(); showLightbox((idx-1+images.length)%images.length); }
-              if(ev.key === 'ArrowRight') { inst.close(); showLightbox((idx+1)%images.length); }
+              if(ev.key === 'ArrowLeft') { 
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                img.src = images[currentIndex].src;
+              }
+              if(ev.key === 'ArrowRight') { 
+                currentIndex = (currentIndex + 1) % images.length;
+                img.src = images[currentIndex].src;
+              }
               if(ev.key === 'Escape') { inst.close(); }
             };
           },
-          onClose: () => { document.onkeydown = null; }
+          onClose: () => { 
+            document.onkeydown = null; 
+            currentInstance = null;
+          }
         });
         instance.show();
       }
+      
       images.forEach(function(img, i) {
         img.setAttribute('data-index', i);
         img.addEventListener('click', function() { showLightbox(i); });
