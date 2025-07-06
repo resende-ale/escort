@@ -88,6 +88,31 @@ for v in vehicles:
         print(f"Warning: Folder {folder_path} does not exist")
 print("File renaming completed!\n")
 
+# Clean up orphaned HTML files in anuncios folder
+print("Cleaning up orphaned HTML files...")
+if os.path.exists('anuncios'):
+    # Get all HTML files in anuncios folder
+    existing_files = [f for f in os.listdir('anuncios') if f.endswith('.html')]
+    
+    # Get expected filenames from CSV
+    expected_files = [f"{v['image_folder']}.html" for v in vehicles]
+    
+    # Find orphaned files (files that exist but are not in CSV)
+    orphaned_files = [f for f in existing_files if f not in expected_files]
+    
+    # Delete orphaned files
+    for orphaned_file in orphaned_files:
+        file_path = os.path.join('anuncios', orphaned_file)
+        try:
+            os.remove(file_path)
+            print(f"  Deleted orphaned file: {orphaned_file}")
+        except Exception as e:
+            print(f"  Error deleting {orphaned_file}: {e}")
+    
+    if not orphaned_files:
+        print("  No orphaned files found")
+print("Cleanup completed!\n")
+
 html_start = '''<!DOCTYPE html>
 <html lang="pt-br">
 <head>
