@@ -17,7 +17,7 @@ def natural_sort_key(text):
 def rename_files_in_folder(folder_path, folder_name):
     """
     Rename all files in a folder to follow the pattern: folder-name-1.ext, folder-name-2.ext, etc.
-    Files are renamed in their natural sort order.
+    Files are renamed in their natural sort order, but only if needed.
     """
     if not os.path.isdir(folder_path):
         return
@@ -31,22 +31,24 @@ def rename_files_in_folder(folder_path, folder_name):
     # Sort files naturally
     files.sort(key=natural_sort_key)
     
-    # Rename files
+    # Prepare expected names
+    expected_names = []
     for i, old_name in enumerate(files, 1):
-        # Get file extension
-        name, ext = os.path.splitext(old_name)
-        new_name = f"{folder_name}-{i}{ext}"
-        
-        old_path = os.path.join(folder_path, old_name)
-        new_path = os.path.join(folder_path, new_name)
-        
-        # Only rename if the new name is different
-        if old_name != new_name:
-            try:
-                shutil.move(old_path, new_path)
-                print(f"  Renamed: {old_name} → {new_name}")
-            except Exception as e:
-                print(f"  Error renaming {old_name}: {e}")
+        _, ext = os.path.splitext(old_name)
+        expected_names.append(f"{folder_name}-{i}{ext}")
+    
+    # Only rename if needed
+    for old_name, expected_name in zip(files, expected_names):
+        if old_name != expected_name:
+            old_path = os.path.join(folder_path, old_name)
+            new_path = os.path.join(folder_path, expected_name)
+            # If the target name already exists, find a temporary name to avoid collision
+            if os.path.exists(new_path):
+                temp_path = os.path.join(folder_path, f"__temp__{old_name}")
+                os.rename(old_path, temp_path)
+                old_path = temp_path
+            os.rename(old_path, new_path)
+            print(f"  Renamed: {old_name} → {expected_name}")
 
 def format_brazilian_phone(phone):
     """
