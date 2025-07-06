@@ -2,6 +2,17 @@ import csv
 import os
 import re
 
+def natural_sort_key(text):
+    """
+    Convert a string into a list of string and number chunks.
+    "car-name-2.jpg" becomes ["car-name-", 2, ".jpg"]
+    This allows for proper numerical sorting.
+    """
+    import re
+    def atoi(text):
+        return int(text) if text.isdigit() else text
+    return [atoi(c) for c in re.split(r'(\d+)', text)]
+
 def format_brazilian_phone(phone):
     """
     Format Brazilian phone number from +5511980553559 to (11) 98055-3559
@@ -54,11 +65,11 @@ for v in vehicles:
     # Check if vehicle should be published (shown on main page)
     publish = v.get("publish", "true").lower() == "true"
     
-    # Main image: first image in alphabetical order from the folder
+    # Main image: first image in natural order from the folder
     img_folder = f"img/{v['image_folder']}"
     main_img = "img/placeholder.jpg"  # fallback placeholder
     if os.path.isdir(img_folder):
-        imgs = sorted([f for f in os.listdir(img_folder) if not f.startswith('.')])
+        imgs = sorted([f for f in os.listdir(img_folder) if not f.startswith('.')], key=natural_sort_key)
         if imgs:
             main_img = f"img/{v['image_folder']}/{imgs[0]}"
     
@@ -169,7 +180,7 @@ for v in vehicles:
     main_img = "img/placeholder.jpg"  # fallback placeholder
     gallery_imgs = []
     if os.path.isdir(img_folder):
-        imgs = sorted([f for f in os.listdir(img_folder) if not f.startswith('.')])
+        imgs = sorted([f for f in os.listdir(img_folder) if not f.startswith('.')], key=natural_sort_key)
         if imgs:
             main_img = f"img/{v['image_folder']}/{imgs[0]}"
             gallery_imgs = [f"img/{v['image_folder']}/{img}" for img in imgs]
