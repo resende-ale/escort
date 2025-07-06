@@ -3,7 +3,7 @@ import os
 
 # Read vehicles from CSV
 vehicles = []
-with open('escort/vehicles.csv', encoding='utf-8') as f:
+with open('vehicles.csv', encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         vehicles.append(row)
@@ -31,9 +31,9 @@ html_end = '''
 
 cards = ""
 for v in vehicles:
-    # Main image: first image in the folder, or fallback to image column
-    img_folder = f"escort/img/{v['image_folder']}"
-    main_img = v['image']
+    # Main image: first image in alphabetical order from the folder
+    img_folder = f"img/{v['image_folder']}"
+    main_img = "img/placeholder.jpg"  # fallback placeholder
     if os.path.isdir(img_folder):
         imgs = sorted([f for f in os.listdir(img_folder) if not f.startswith('.')])
         if imgs:
@@ -45,7 +45,7 @@ for v in vehicles:
     </a>
     '''
 
-with open('escort/index.html', 'w', encoding='utf-8') as f:
+with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_start + cards + html_end)
 
 # Generate detail pages for each vehicle
@@ -133,11 +133,11 @@ detail_template = '''<!DOCTYPE html>
 </html>
 '''
 
-os.makedirs('escort/anuncios', exist_ok=True)
+os.makedirs('anuncios', exist_ok=True)
 for v in vehicles:
-    img_folder = f"escort/img/{v['image_folder']}"
+    img_folder = f"img/{v['image_folder']}"
     gallery = ""
-    main_img = v['image']
+    main_img = "img/placeholder.jpg"  # fallback placeholder
     gallery_imgs = []
     if os.path.isdir(img_folder):
         imgs = sorted([f for f in os.listdir(img_folder) if not f.startswith('.')])
@@ -168,7 +168,7 @@ for v in vehicles:
     )
     # Extract filename from link
     filename = v["link"].split('/')[-1]
-    with open(f'escort/anuncios/{filename}', 'w', encoding='utf-8') as f:
+    with open(f'anuncios/{filename}', 'w', encoding='utf-8') as f:
         f.write(detail_html)
 
-print("escort/index.html and detail pages generated!") 
+print("index.html and detail pages generated!") 
