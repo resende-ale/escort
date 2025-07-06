@@ -51,6 +51,9 @@ html_end = '''
 
 cards = ""
 for v in vehicles:
+    # Check if vehicle should be published (shown on main page)
+    publish = v.get("publish", "true").lower() == "true"
+    
     # Main image: first image in alphabetical order from the folder
     img_folder = f"img/{v['image_folder']}"
     main_img = "img/placeholder.jpg"  # fallback placeholder
@@ -62,12 +65,14 @@ for v in vehicles:
     # Generate link automatically from image_folder name
     link = f"anuncios/{v['image_folder']}.html"
     
-    cards += f'''
-    <a href="{link}" class="card">
-      <img src="{main_img}" alt="{v["title"]}">
-      <div class="info">{v["title"]}</div>
-    </a>
-    '''
+    # Only add card to main page if published
+    if publish:
+        cards += f'''
+        <a href="{link}" class="card">
+          <img src="{main_img}" alt="{v["title"]}">
+          <div class="info">{v["title"]}</div>
+        </a>
+        '''
 
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_start + cards + html_end)
