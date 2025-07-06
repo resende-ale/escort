@@ -1,6 +1,7 @@
 import csv
 import os
 import re
+import shutil
 
 def natural_sort_key(text):
     """
@@ -12,6 +13,40 @@ def natural_sort_key(text):
     def atoi(text):
         return int(text) if text.isdigit() else text
     return [atoi(c) for c in re.split(r'(\d+)', text)]
+
+def rename_files_in_folder(folder_path, folder_name):
+    """
+    Rename all files in a folder to follow the pattern: folder-name-1.ext, folder-name-2.ext, etc.
+    Files are renamed in their natural sort order.
+    """
+    if not os.path.isdir(folder_path):
+        return
+    
+    # Get all files (excluding hidden files and directories)
+    files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f)) and not f.startswith('.')]
+    
+    if not files:
+        return
+    
+    # Sort files naturally
+    files.sort(key=natural_sort_key)
+    
+    # Rename files
+    for i, old_name in enumerate(files, 1):
+        # Get file extension
+        name, ext = os.path.splitext(old_name)
+        new_name = f"{folder_name}-{i}{ext}"
+        
+        old_path = os.path.join(folder_path, old_name)
+        new_path = os.path.join(folder_path, new_name)
+        
+        # Only rename if the new name is different
+        if old_name != new_name:
+            try:
+                shutil.move(old_path, new_path)
+                print(f"  Renamed: {old_name} → {new_name}")
+            except Exception as e:
+                print(f"  Error renaming {old_name}: {e}")
 
 def format_brazilian_phone(phone):
     """
@@ -38,6 +73,18 @@ with open('vehicles.csv', encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         vehicles.append(row)
+
+# Rename files in each car's folder to follow consistent naming
+print("Renaming files in car folders...")
+for v in vehicles:
+    folder_name = v['image_folder']
+    folder_path = f"img/{folder_name}"
+    if os.path.isdir(folder_path):
+        print(f"Processing folder: {folder_name}")
+        rename_files_in_folder(folder_path, folder_name)
+    else:
+        print(f"Warning: Folder {folder_path} does not exist")
+print("File renaming completed!\n")
 
 html_start = '''<!DOCTYPE html>
 <html lang="pt-br">
