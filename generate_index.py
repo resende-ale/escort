@@ -38,8 +38,12 @@ for v in vehicles:
         imgs = sorted([f for f in os.listdir(img_folder) if not f.startswith('.')])
         if imgs:
             main_img = f"img/{v['image_folder']}/{imgs[0]}"
+    
+    # Generate link automatically from image_folder name
+    link = f"anuncios/{v['image_folder']}.html"
+    
     cards += f'''
-    <a href="{v["link"]}" class="card">
+    <a href="{link}" class="card">
       <img src="{main_img}" alt="{v["title"]}">
       <div class="info">{v["title"]}</div>
     </a>
@@ -166,8 +170,8 @@ for v in vehicles:
         power=v.get("power", "-"),
         gallery=gallery
     )
-    # Extract filename from link
-    filename = v["link"].split('/')[-1]
+    # Generate filename from image_folder name
+    filename = f"{v['image_folder']}.html"
     with open(f'anuncios/{filename}', 'w', encoding='utf-8') as f:
         f.write(detail_html)
 
