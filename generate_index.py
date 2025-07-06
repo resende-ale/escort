@@ -1,5 +1,25 @@
 import csv
 import os
+import re
+
+def format_brazilian_phone(phone):
+    """
+    Format Brazilian phone number from +5511980553559 to (11) 98055-3559
+    """
+    # Remove +55 and any non-digit characters
+    digits = re.sub(r'[^\d]', '', phone)
+    
+    # If it starts with 55, remove it (Brazil country code)
+    if digits.startswith('55'):
+        digits = digits[2:]
+    
+    # Format as (XX) XXXXX-XXXX
+    if len(digits) == 11:  # Mobile number
+        return f"({digits[:2]}) {digits[2:7]}-{digits[7:]}"
+    elif len(digits) == 10:  # Landline number
+        return f"({digits[:2]}) {digits[2:6]}-{digits[6:]}"
+    else:
+        return phone  # Return original if format is unexpected
 
 # Read vehicles from CSV
 vehicles = []
@@ -154,14 +174,19 @@ for v in vehicles:
         for idx, img in enumerate(gallery_imgs):
             gallery += f'<img src="../{img}" class="gallery-img" loading="lazy" data-index="{idx}">'  # add data-index
         gallery += '</div>'
+    # Format WhatsApp number for display and link
+    whatsapp_raw = v.get("whatsapp", "")
+    whatsapp_display = format_brazilian_phone(whatsapp_raw)
+    whatsapp_link = re.sub(r'[^\d]', '', whatsapp_raw)  # Remove all non-digits for the link
+    
     detail_html = detail_template.format(
         title=v["title"],
         main_img=main_img,
         price=v.get("price", ""),
         location=v.get("location", ""),
         description=v.get("description", ""),
-        whatsapp_link=v.get("whatsapp", "").replace("+", "").replace(" ", ""),
-        whatsapp_display=v.get("whatsapp_display", v.get("whatsapp", "")),
+        whatsapp_link=whatsapp_link,
+        whatsapp_display=whatsapp_display,
         make=v.get("make", "-"),
         model=v.get("model", "-"),
         year=v.get("year", "-"),
