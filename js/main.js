@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const nextBtn = document.querySelector('.featured-nav .next-btn');
         
         if (featuredContainer && prevBtn && nextBtn) {
-            const scrollAmount = 300;
+            const scrollAmount = 220;
             
             // Next button
             nextBtn.addEventListener('click', function() {
