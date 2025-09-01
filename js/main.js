@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize all components
     initHeader();
-    initFeaturedModels();
+    initSwiper();
     initStories();
     initModelCards();
     initSearch();
@@ -31,40 +31,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Featured models carousel functionality
-    function initFeaturedModels() {
-        const featuredContainer = document.querySelector('.featured-container');
-        const prevBtn = document.querySelector('.featured-nav .prev-btn');
-        const nextBtn = document.querySelector('.featured-nav .next-btn');
+    // Swiper initialization
+    function initSwiper() {
+        const swiper = new Swiper('.mySwiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 8,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
         
-        if (featuredContainer && prevBtn && nextBtn) {
-            const scrollAmount = 220;
-            
-            // Next button
-            nextBtn.addEventListener('click', function() {
-                featuredContainer.scrollBy({
-                    left: scrollAmount,
-                    behavior: 'smooth'
-                });
+        // Add click functionality to slides
+        const slides = document.querySelectorAll('.swiper-slide a');
+        slides.forEach(slide => {
+            slide.addEventListener('click', function(e) {
+                e.preventDefault();
+                const modelName = this.nextElementSibling.textContent;
+                openModelProfile(modelName);
             });
-            
-            // Previous button
-            prevBtn.addEventListener('click', function() {
-                featuredContainer.scrollBy({
-                    left: -scrollAmount,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Featured cards click functionality
-            const featuredCards = document.querySelectorAll('.featured-card');
-            featuredCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const modelName = this.querySelector('.featured-name').textContent;
-                    openModelProfile(modelName);
-                });
-            });
-        }
+        });
     }
     
     // Stories carousel functionality
