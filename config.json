@@ -1,0 +1,84 @@
+{
+  "site": {
+    "name": "SPLOVE",
+    "title": "SPLOVE - Acompanhantes de Luxo em São Paulo",
+    "description": "A plataforma mais exclusiva de acompanhantes de luxo em São Paulo",
+    "url": "https://spacompanhantes.app.br",
+    "domain": "spacompanhantes.app.br"
+  },
+  "design": {
+    "colors": {
+      "primary": "#ff6b35",
+      "background": "#0a0a0a",
+      "surface": "#1a1a1a",
+      "text": "#ffffff",
+      "textSecondary": "#cccccc"
+    },
+    "fonts": {
+      "primary": "Inter",
+      "weights": [300, 400, 500, 600, 700]
+    },
+    "breakpoints": {
+      "mobile": 480,
+      "tablet": 768,
+      "desktop": 1200
+    }
+  },
+  "sections": {
+    "featured": {
+      "title": "Modelos em Destaque",
+      "maxItems": 2
+    },
+    "stories": {
+      "title": "STORIES",
+      "maxItems": 6
+    },
+    "models": {
+      "title": "MODELOS SP",
+      "gridColumns": {
+        "mobile": 1,
+        "tablet": 2,
+        "desktop": 4
+      }
+    }
+  },
+  "navigation": {
+    "header": {
+      "logo": "SPLOVE",
+      "actions": ["filter", "search", "profile", "menu"]
+    },
+    "footer": {
+      "columns": [
+        {
+          "title": "BAIRROS",
+          "links": ["Vila Olímpia", "Pinheiros", "Moema", "Vila Madalena", "Itaim Bibi", "Jardins"]
+        },
+        {
+          "title": "MODELOS",
+          "links": ["Acompanhantes de Luxo", "Acompanhantes Novas", "Modelos Profissionais", "Garotas de Programa"]
+        },
+        {
+          "title": "CATEGORIAS",
+          "links": ["Gata Gô", "Acompanhantes de Destaque", "Modelos VIP", "Acompanhantes Premium"]
+        },
+        {
+          "title": "NOVIDADES",
+          "type": "news"
+        }
+      ]
+    }
+  },
+  "features": {
+    "lazyLoading": true,
+    "touchGestures": true,
+    "keyboardNavigation": true,
+    "smoothScrolling": true,
+    "responsive": true
+  },
+  "performance": {
+    "imageOptimization": true,
+    "debounceScroll": true,
+    "minifyCSS": false,
+    "minifyJS": false
+  }
+}

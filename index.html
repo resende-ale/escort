@@ -3,65 +3,243 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carros à Venda</title>
+  <title>SPLOVE - Acompanhantes de Luxo em São Paulo</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <img src="img/logo.png" alt="Logo">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <span class="logo-sp">SP</span><span class="logo-love">LOVE</span>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="filter-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <circle cx="6" cy="6" r="2"></circle>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <circle cx="18" cy="12" r="2"></circle>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+            <circle cx="12" cy="18" r="2"></circle>
+          </svg>
+        </button>
+        <button class="icon-btn" id="search-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+        <button class="icon-btn" id="profile-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menu-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
   </header>
-  <main class="grid">
 
-        <a href="anuncios/gol-2019.html" class="card">
-          <img src="img/gol-2019/gol-2019-1.jpg" alt="Volkswagen Gol 2019">
-          <div class="info">Volkswagen Gol 2019</div>
-        </a>
-        
-        <a href="anuncios/civic-2021.html" class="card">
-          <img src="img/civic-2021/civic-2021-1.jpg" alt="Honda Civic 2021">
-          <div class="info">Honda Civic 2021</div>
-        </a>
-        
-        <a href="anuncios/corolla-2024.html" class="card">
-          <img src="img/corolla-2024/corolla-2024-1.jpg" alt="Toyota Corolla 2024">
-          <div class="info">Toyota Corolla 2024</div>
-        </a>
-        
-        <a href="anuncios/lancer-2009.html" class="card">
-          <img src="img/lancer-2009/lancer-2009-1.webp" alt="Mitsubishi Lancer 2009">
-          <div class="info">Mitsubishi Lancer 2009</div>
-        </a>
-        
-        <a href="anuncios/tcross-2024.html" class="card">
-          <img src="img/tcross-2024/tcross-2024-1.avif" alt="Volkswagen T-Cross 2024">
-          <div class="info">Volkswagen T-Cross 2024</div>
-        </a>
-        
-        <a href="anuncios/jimny-2024.html" class="card">
-          <img src="img/jimny-2024/jimny-2024-1.jpg" alt="Suzuki Jimny 2024">
-          <div class="info">Suzuki Jimny 2024</div>
-        </a>
-        
-        <a href="anuncios/panda-2022.html" class="card">
-          <img src="img/panda-2022/panda-2022-1.webp" alt="Fiat Panda 2022">
-          <div class="info">Fiat Panda 2022</div>
-        </a>
-        
-        <a href="anuncios/a3-2024.html" class="card">
-          <img src="img/a3-2024/a3-2024-1.jpg" alt="Audi A3 2024">
-          <div class="info">Audi A3 2024</div>
-        </a>
-        
-        <a href="anuncios/x5-2017.html" class="card">
-          <img src="img/x5-2017/x5-2017-1.jpg" alt="BMW X5 2017">
-          <div class="info">BMW X5 2017</div>
-        </a>
-        
-        <a href="anuncios/nivus-2023.html" class="card">
-          <img src="img/nivus-2023/nivus-2023-1.jpg" alt="Volkswagen Nivus 2023">
-          <div class="info">Volkswagen Nivus 2023</div>
-        </a>
-        
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Featured Models Section -->
+    <section class="featured-models">
+      <div class="featured-container">
+        <div class="featured-card">
+          <img src="img/models/placeholder.jpg" alt="Nina Maria" class="featured-img">
+          <div class="featured-name">Nina Maria</div>
+        </div>
+        <div class="featured-card">
+          <img src="img/models/placeholder.jpg" alt="Laura Valentina" class="featured-img">
+          <div class="featured-name">Laura Valentina</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section class="stories-section">
+      <div class="section-header">
+        <h2 class="section-title">STORIES</h2>
+        <div class="section-nav">
+          <button class="nav-btn prev-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          <button class="nav-btn next-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="stories-container">
+        <div class="story-item">
+          <img src="img/stories/placeholder.jpg" alt="Story 1" class="story-img">
+        </div>
+        <div class="story-item">
+          <img src="img/stories/placeholder.jpg" alt="Story 2" class="story-img">
+        </div>
+        <div class="story-item">
+          <img src="img/stories/placeholder.jpg" alt="Story 3" class="story-img">
+        </div>
+        <div class="story-item">
+          <img src="img/stories/placeholder.jpg" alt="Story 4" class="story-img">
+        </div>
+        <div class="story-item">
+          <img src="img/stories/placeholder.jpg" alt="Story 5" class="story-img">
+        </div>
+        <div class="story-item">
+          <img src="img/stories/placeholder.jpg" alt="Story 6" class="story-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Models Grid Section -->
+    <section class="models-section">
+      <div class="section-header">
+        <h2 class="section-title">MODELOS SP</h2>
+      </div>
+      <div class="models-grid">
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Luna B" class="model-img">
+          <div class="model-name">Luna B</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Chiara" class="model-img">
+          <div class="model-name">Chiara</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Ana Guedes" class="model-img">
+          <div class="model-name">Ana Guedes</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Diana Lovell" class="model-img">
+          <div class="model-name">Diana Lovell</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Alana Dourada" class="model-img">
+          <div class="model-name">Alana Dourada</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Paige Montana" class="model-img">
+          <div class="model-name">Paige Montana</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Nicole Zamana" class="model-img">
+          <div class="model-name">Nicole Zamana</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Clara Viana" class="model-img">
+          <div class="model-name">Clara Viana</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Aisha Dourada" class="model-img">
+          <div class="model-name">Aisha Dourada</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Yasmin" class="model-img">
+          <div class="model-name">Yasmin</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+      <div class="info-container">
+        <h1 class="info-title">Acompanhantes SP em São Paulo e Acompanhante de Luxo SPLOVE</h1>
+        <div class="info-content">
+          <p>Bem-vindo ao SPLOVE, a plataforma mais exclusiva de acompanhantes de luxo em São Paulo. Nossa seleção criteriosa garante que você encontre as melhores acompanhantes da cidade, com perfis verificados e fotos reais.</p>
+          <p>Oferecemos acompanhantes de luxo, modelos profissionais e garotas de programa de alta qualidade. Todas as nossas acompanhantes passam por um processo rigoroso de verificação para garantir sua segurança e satisfação.</p>
+          <p>Navegue por nossa galeria de modelos, explore os diferentes bairros de São Paulo e encontre a acompanhante perfeita para seus momentos especiais.</p>
+        </div>
+        <div class="info-tags">
+          <span class="tag">Acompanhantes</span>
+          <span class="tag">Acompanhantes de Luxo</span>
+          <span class="tag">Acompanhantes SP</span>
+          <span class="tag">Garotas de Programa</span>
+          <span class="tag">Acompanhantes Famosas</span>
+          <span class="tag">Modelos Trans</span>
+          <span class="tag">Novas</span>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3 class="footer-title">BAIRROS</h3>
+        <ul class="footer-list">
+          <li><a href="#">Vila Olímpia</a></li>
+          <li><a href="#">Pinheiros</a></li>
+          <li><a href="#">Moema</a></li>
+          <li><a href="#">Vila Madalena</a></li>
+          <li><a href="#">Itaim Bibi</a></li>
+          <li><a href="#">Jardins</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title">MODELOS</h3>
+        <ul class="footer-list">
+          <li><a href="#">Acompanhantes de Luxo</a></li>
+          <li><a href="#">Acompanhantes Novas</a></li>
+          <li><a href="#">Modelos Profissionais</a></li>
+          <li><a href="#">Garotas de Programa</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title">CATEGORIAS</h3>
+        <ul class="footer-list">
+          <li><a href="#">Gata Gô</a></li>
+          <li><a href="#">Acompanhantes de Destaque</a></li>
+          <li><a href="#">Modelos VIP</a></li>
+          <li><a href="#">Acompanhantes Premium</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title">NOVIDADES</h3>
+        <div class="news-list">
+          <div class="news-item">
+            <img src="img/news/placeholder.jpg" alt="Luna B" class="news-img">
+            <div class="news-info">
+              <div class="news-name">Luna B</div>
+              <div class="news-desc">Nova modelo disponível</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <img src="img/news/placeholder.jpg" alt="Angie Sweet" class="news-img">
+            <div class="news-info">
+              <div class="news-name">Angie Sweet</div>
+              <div class="news-desc">Retornou à plataforma</div>
+            </div>
+          </div>
+          <div class="news-item">
+            <img src="img/news/placeholder.jpg" alt="Sindy Maia" class="news-img">
+            <div class="news-info">
+              <div class="news-name">Sindy Maia</div>
+              <div class="news-desc">Nova acompanhante</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; Copyright 2023 - Exclusivo de Entretenimento Adulto - Powered by SPLOVE (2018)</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
