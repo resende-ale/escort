@@ -16,35 +16,42 @@
       <div class="logo">
         <span class="logo-sp">SP</span><span class="logo-love">LOVE</span>
       </div>
-      <div class="header-actions">
-        <button class="icon-btn" id="filter-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <circle cx="6" cy="6" r="2"></circle>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <circle cx="18" cy="12" r="2"></circle>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-            <circle cx="12" cy="18" r="2"></circle>
+      <nav class="main-nav">
+        <a href="#" class="nav-link">EXPLORAR</a>
+        <a href="#" class="nav-link dropdown">
+          ACOMPANHANTES
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
           </svg>
-        </button>
+        </a>
+        <a href="#" class="nav-link dropdown">
+          MODELOS
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </a>
+        <a href="#" class="nav-link dropdown">
+          CATEGORIAS
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </a>
+        <a href="#" class="nav-link">FILTRO</a>
+        <a href="#" class="nav-link">CONTATO</a>
+      </nav>
+      <div class="header-actions">
         <button class="icon-btn" id="search-btn">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
           </svg>
         </button>
-        <button class="icon-btn" id="profile-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button class="login-btn" id="login-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
-        </button>
-        <button class="icon-btn menu-btn" id="menu-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
+          Login
         </button>
       </div>
     </div>
@@ -56,6 +63,18 @@
     <section class="featured-models">
       <div class="featured-container">
         <div class="featured-card">
+          <img src="img/models/placeholder.jpg" alt="Lígia" class="featured-img">
+          <div class="featured-name">Lígia</div>
+        </div>
+        <div class="featured-card">
+          <img src="img/models/placeholder.jpg" alt="Luna B" class="featured-img">
+          <div class="featured-name">Luna B</div>
+        </div>
+        <div class="featured-card">
+          <img src="img/models/placeholder.jpg" alt="Angel Duhart" class="featured-img">
+          <div class="featured-name">Angel Duhart</div>
+        </div>
+        <div class="featured-card">
           <img src="img/models/placeholder.jpg" alt="Nina Maria" class="featured-img">
           <div class="featured-name">Nina Maria</div>
         </div>
@@ -63,6 +82,30 @@
           <img src="img/models/placeholder.jpg" alt="Laura Valentina" class="featured-img">
           <div class="featured-name">Laura Valentina</div>
         </div>
+        <div class="featured-card">
+          <img src="img/models/placeholder.jpg" alt="Anitta Biancci" class="featured-img">
+          <div class="featured-name">Anitta Biancci</div>
+        </div>
+        <div class="featured-card">
+          <img src="img/models/placeholder.jpg" alt="Mel Mineira" class="featured-img">
+          <div class="featured-name">Mel Mineira</div>
+        </div>
+        <div class="featured-card">
+          <img src="img/models/placeholder.jpg" alt="Eloá Gaúcha" class="featured-img">
+          <div class="featured-name">Eloá Gaúcha</div>
+        </div>
+      </div>
+      <div class="featured-nav">
+        <button class="nav-btn prev-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15,18 9,12 15,6"></polyline>
+          </svg>
+        </button>
+        <button class="nav-btn next-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9,18 15,12 9,6"></polyline>
+          </svg>
+        </button>
       </div>
     </section>
 
@@ -70,18 +113,6 @@
     <section class="stories-section">
       <div class="section-header">
         <h2 class="section-title">STORIES</h2>
-        <div class="section-nav">
-          <button class="nav-btn prev-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="15,18 9,12 15,6"></polyline>
-            </svg>
-          </button>
-          <button class="nav-btn next-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9,18 15,12 9,6"></polyline>
-            </svg>
-          </button>
-        </div>
       </div>
       <div class="stories-container">
         <div class="story-item">
@@ -102,6 +133,18 @@
         <div class="story-item">
           <img src="img/stories/placeholder.jpg" alt="Story 6" class="story-img">
         </div>
+        <div class="story-item">
+          <img src="img/stories/placeholder.jpg" alt="Story 7" class="story-img">
+        </div>
+        <div class="story-item">
+          <img src="img/stories/placeholder.jpg" alt="Story 8" class="story-img">
+        </div>
+        <div class="story-item">
+          <img src="img/stories/placeholder.jpg" alt="Story 9" class="story-img">
+        </div>
+        <div class="story-item">
+          <img src="img/stories/placeholder.jpg" alt="Story 10" class="story-img">
+        </div>
       </div>
     </section>
 
@@ -112,8 +155,24 @@
       </div>
       <div class="models-grid">
         <div class="model-card">
-          <img src="img/models/placeholder.jpg" alt="Luna B" class="model-img">
-          <div class="model-name">Luna B</div>
+          <img src="img/models/placeholder.jpg" alt="Melissa Bernardi" class="model-img">
+          <div class="model-name">Melissa Bernardi</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Nina Maria" class="model-img">
+          <div class="model-name">Nina Maria</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Alícia Drumolin" class="model-img">
+          <div class="model-name">Alícia Drumolin</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Violet" class="model-img">
+          <div class="model-name">Violet</div>
+        </div>
+        <div class="model-card">
+          <img src="img/models/placeholder.jpg" alt="Laila" class="model-img">
+          <div class="model-name">Laila</div>
         </div>
         <div class="model-card">
           <img src="img/models/placeholder.jpg" alt="Chiara" class="model-img">

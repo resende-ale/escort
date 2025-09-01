@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize all components
     initHeader();
+    initFeaturedModels();
     initStories();
     initModelCards();
     initSearch();
@@ -10,18 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Header functionality
     function initHeader() {
-        const menuBtn = document.getElementById('menu-btn');
         const searchBtn = document.getElementById('search-btn');
-        const filterBtn = document.getElementById('filter-btn');
-        const profileBtn = document.getElementById('profile-btn');
-        
-        // Menu button functionality
-        if (menuBtn) {
-            menuBtn.addEventListener('click', function() {
-                // TODO: Implement mobile menu
-                console.log('Menu clicked');
-            });
-        }
+        const loginBtn = document.getElementById('login-btn');
         
         // Search button functionality
         if (searchBtn) {
@@ -31,19 +22,47 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Filter button functionality
-        if (filterBtn) {
-            filterBtn.addEventListener('click', function() {
-                // TODO: Implement filter modal
-                console.log('Filter clicked');
+        // Login button functionality
+        if (loginBtn) {
+            loginBtn.addEventListener('click', function() {
+                // TODO: Implement login modal
+                console.log('Login clicked');
             });
         }
+    }
+    
+    // Featured models carousel functionality
+    function initFeaturedModels() {
+        const featuredContainer = document.querySelector('.featured-container');
+        const prevBtn = document.querySelector('.featured-nav .prev-btn');
+        const nextBtn = document.querySelector('.featured-nav .next-btn');
         
-        // Profile button functionality
-        if (profileBtn) {
-            profileBtn.addEventListener('click', function() {
-                // TODO: Implement profile/login modal
-                console.log('Profile clicked');
+        if (featuredContainer && prevBtn && nextBtn) {
+            const scrollAmount = 300;
+            
+            // Next button
+            nextBtn.addEventListener('click', function() {
+                featuredContainer.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Previous button
+            prevBtn.addEventListener('click', function() {
+                featuredContainer.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Featured cards click functionality
+            const featuredCards = document.querySelectorAll('.featured-card');
+            featuredCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const modelName = this.querySelector('.featured-name').textContent;
+                    openModelProfile(modelName);
+                });
             });
         }
     }
